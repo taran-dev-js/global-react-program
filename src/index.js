@@ -1,12 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./style.scss";
-import logo from "./assests/images/img.png";
+import Logo from "./components/Logo";
 
 const App = () => {
 
     console.log('test')
-    return <div><img src={logo} />Hello React!</div>;
+    return <div><Logo /></div>;
 };
 
 ReactDOM.render(<App />, document.getElementById("root"));
