@@ -2,7 +2,7 @@
   "name": "webpack-react",
   "version": "1.0.0",
   "main": "index.js",
-  "author": "Michael Pontus <m.pontus@gmail.com>",
+  "author": "",
   "license": "MIT",
   "scripts": {
     "build": "webpack --mode production",
