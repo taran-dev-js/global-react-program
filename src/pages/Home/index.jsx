@@ -5,16 +5,17 @@ import Filter from '../../components/Filter'
 import ResultCount from '../../components/ResultCount'
 import FilmList from '../../components/FilmList'
 import Footer from '../../components/Footer'
+import ErrorCatch from '../../components/ErrorCatch'
 
 const FILMS = [
     {
-        img: 'https://via.placeholder.com/320x400',
+        img: 'https://picsum.photos/320/400',
         title: 'Pulf',
         type: 'Action',
         year: '2019'
     },
     {
-        img: 'https://via.placeholder.com/320x400',
+        img: 'https://picsum.photos/320/400',
         title: 'Tor',
         type: 'Action',
         year: '2015'
@@ -29,9 +30,11 @@ const Home = () => {
                 <Container>
                     <Row>
                         <Col>
-                            <Filter/>
-                            <ResultCount filmsCount={0}/>
-                            <FilmList searchResult={FILMS}/>
+                            <ErrorCatch>
+                                <Filter/>
+                                <ResultCount filmsCount={0}/>
+                                <FilmList searchResult={FILMS}/>
+                            </ErrorCatch>
                         </Col>
                     </Row>
                 </Container>

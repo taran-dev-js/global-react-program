@@ -1,8 +1,9 @@
 import React from "react";
 import {Row} from 'react-bootstrap'
+import PropTypes from 'prop-types'
 import FilmItem from '../FilmItem'
 
-export default ({searchResult}) => {
+const FilmList = ({searchResult}) => {
     return (
         <div className="film-list">
             <Row>
@@ -11,3 +12,9 @@ export default ({searchResult}) => {
         </div>
     )
 }
+
+FilmList.propTypes = {
+    searchResult: PropTypes.array
+}
+
+export default FilmList;

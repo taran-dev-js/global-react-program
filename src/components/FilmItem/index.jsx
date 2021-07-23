@@ -1,5 +1,6 @@
-import React, {useState} from "react";
+import React from "react";
 import {Col} from 'react-bootstrap'
+import PropTypes from 'prop-types'
 import DropDownMenu from '../DropDownMenu'
 
 import './styles.scss'
@@ -22,4 +23,12 @@ const FilmItem = ({img, title, year, type}) => {
         </Col>
     )
 }
+
+FilmItem.propTypes = {
+    img: PropTypes.string,
+    title: PropTypes.string,
+    year: PropTypes.string,
+    type: PropTypes.string
+}
+
 export default FilmItem;
