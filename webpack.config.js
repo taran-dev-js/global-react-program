@@ -41,11 +41,7 @@ module.exports = function(_env, argv) {
                         isProduction ? MiniCssExtractPlugin.loader : "style-loader",
                         {
                             loader: "css-loader",
-                            options: {
-                                importLoaders: 2
-                            }
                         },
-                        "resolve-url-loader",
                         {
                             loader: "sass-loader",
                             options: {
@@ -57,11 +53,7 @@ module.exports = function(_env, argv) {
                 {
                     test: /\.(png|jpg|gif)$/i,
                     use: {
-                        loader: "url-loader",
-                        options: {
-                            limit: 8192,
-                            name: "static/media/[name].[hash:8].[ext]"
-                        }
+                        loader: "file-loader"
                     }
                 },
                 {
