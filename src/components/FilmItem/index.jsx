@@ -5,13 +5,13 @@ import DropDownMenu from '../DropDownMenu'
 
 import './styles.scss'
 
-const FilmItem = ({img, title, year, type}) => {
+const FilmItem = ({handleDeleteModal, handleEditModal, img, title, year, type}) => {
 
     return (
         <Col md={4}>
             <div className="film-item">
                 <div className="film-item__img">
-                    <DropDownMenu/>
+                    <DropDownMenu handleDeleteModal={handleDeleteModal} handleEditModal={handleEditModal}/>
                     <img src={img} alt=""/>
                 </div>
                 <div className="film-item__info">
