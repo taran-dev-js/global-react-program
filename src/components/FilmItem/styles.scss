@@ -1,0 +1,30 @@
+.film-item {
+  margin-bottom: 30px;
+}
+
+.film-item__img {
+  position: relative;
+  img {
+    display: block;
+    max-width: 100%;
+  }
+}
+
+.film-item__info {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding-top: 10px;
+  color: #fff;
+}
+
+.film-item__year {
+  margin-left: auto;
+  border: 1px solid #fff;
+  border-radius: 15px;
+  padding: 3px 10px;
+}
+
+.film-item__type {
+  width: 100%;
+}

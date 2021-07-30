@@ -1,12 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./style.scss";
-import Logo from "./components/Logo";
+import Home from './pages/Home'
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
 
-    console.log('test')
-    return <div><Logo /></div>;
+    return <Home/>;
 };
 
 ReactDOM.render(<App />, document.getElementById("root"));

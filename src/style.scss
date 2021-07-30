@@ -1,1 +1,24 @@
-@import "test";
+.container {
+  max-width: 1000px !important;
+}
+
+main {
+  //height: 100%;
+  background: #424242;
+}
+
+html, body, .root {
+  display: flex;
+  flex: 1 0 auto;
+  flex-flow: column;
+  height: 100%;
+}
+
+header, footer {
+  flex-shrink: 0;
+}
+
+footer {
+  height: 100px;
+  background: #555555;
+}
