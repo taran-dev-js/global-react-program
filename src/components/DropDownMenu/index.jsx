@@ -3,7 +3,7 @@ import Button from '../Button';
 
 import './styles.scss'
 
-const DropDownMenu = () => {
+const DropDownMenu = ({handleEditModal, handleDeleteModal}) => {
     const [isOpenMenu, setOpenMenu] = useState(false);
 
     const handleMenuClick = (e) => {
@@ -17,8 +17,8 @@ const DropDownMenu = () => {
             {
                 isOpenMenu &&
                 <ul>
-                    <li><Button title="Edit"/></li>
-                    <li><Button title="Delete"/></li>
+                    <li><Button title="Edit" onClick={handleEditModal}/></li>
+                    <li><Button title="Delete" onClick={handleDeleteModal}/></li>
                 </ul>
             }
         </div>

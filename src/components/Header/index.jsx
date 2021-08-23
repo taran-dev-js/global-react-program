@@ -6,7 +6,7 @@ import Button from '../Button'
 import Search from '../Search'
 import './styles.scss'
 
-export default () => {
+const Header = ({handleAddModal}) => {
 
     return (
     <header className="header">
@@ -18,7 +18,9 @@ export default () => {
                     </Col>
                     <Col md={{span: 3, offset: 6}}>
                         <div className="header__top-btn">
-                            <Button style="button--transparent" title="+ ADD MOVIE"/>
+                            <Button style="button--transparent"
+                                    onClick={handleAddModal}
+                                    title="+ ADD MOVIE"/>
                         </div>
                     </Col>
                 </Row>
@@ -37,3 +39,5 @@ export default () => {
     </header>
     )
 }
+
+export default Header;

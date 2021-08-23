@@ -1,0 +1,36 @@
+.c-modal {
+  display: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(#000, .3);
+  &.isOpen {
+    display: block;
+  }
+}
+
+.c-modal__wrap {
+  position: absolute;
+  top: 100px;
+  width: 500px;
+  height: auto;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #232323;
+  color: #fff;
+}
+
+.c-modal__close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 26px;
+  line-height: 1;
+}
+
+.c-modal__container {
+  padding: 40px 50px;
+
+}
