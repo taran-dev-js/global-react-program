@@ -1,6 +1,6 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Container, Row, Col} from 'react-bootstrap';
-import Header from '../../components/Header'
+import MovieHeader from '../../components/MovieHeader'
 import Filter from '../../components/Filter'
 import ResultCount from '../../components/ResultCount'
 import FilmList from '../../components/FilmList'
@@ -9,30 +9,37 @@ import ErrorCatch from '../../components/ErrorCatch'
 import Modal from "../../components/Modal";
 import Button from "../../components/Button";
 import FormGroup from "../../components/Form/FormGroup";
+import {useAddBodyClass} from "../../hooks/add-body-class";
 
 const FILMS = [
     {
         img: 'https://picsum.photos/320/400',
         title: 'Pulf',
+        subtitle: 'Lorem Ipsum has been the industry',
         type: 'Action',
         year: '2019',
         duration: '140 min',
+        rating: '4.6',
         description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'
     },
     {
         img: 'https://picsum.photos/320/400',
         title: 'Tor',
+        subtitle: 'Lorem Ipsum has been the industry',
         type: 'Action',
         year: '2015',
         duration: '157 min',
+        rating: '4.0',
         description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'
     }
 ]
 
-const Home = () => {
-    const [isOpenEditModal, setOpenEditModal] = useState(true);
+const Movie = () => {
+    const [isOpenEditModal, setOpenEditModal] = useState(false);
     const [isOpenDeleteModal, setOpenDeleteModal] = useState(false);
     const [isOpenAddModal, setOpenAddModal] = useState(false);
+
+    useAddBodyClass('testClass');
 
     const handleDeleteModal = () => {
         setOpenDeleteModal(true)
@@ -78,7 +85,7 @@ const Home = () => {
 
     return (
         <>
-            <Header handleAddModal={handleAddModal}/>
+            <MovieHeader movie={FILMS[0]}/>
             <main>
                 <Container>
                     <Row>
@@ -114,4 +121,4 @@ const Home = () => {
     )
 }
 
-export default Home;
+export default Movie;
