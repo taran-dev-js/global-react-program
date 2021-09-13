@@ -10,7 +10,9 @@
     "test": "jest"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "bootstrap": "^5.0.2",
+    "formik": "^2.2.9",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
     "react-bootstrap": "^1.6.1",
@@ -49,6 +51,7 @@
     "url-loader": "^2.1.0",
     "webpack": "^5.46.0",
     "webpack-cli": "^3.3.9",
-    "webpack-dev-server": "^3.8.1"
+    "webpack-dev-server": "^3.8.1",
+    "yup": "^0.32.9"
   }
 }

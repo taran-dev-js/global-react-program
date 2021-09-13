@@ -1,9 +1,9 @@
 import React from "react";
-import Button from '../Button'
+import {Button} from '../Button'
 
 import "./styles.scss"
 
-export default () => {
+export const Filter = () => {
     return (
         <div className="filter">
             <div className="filter__list">

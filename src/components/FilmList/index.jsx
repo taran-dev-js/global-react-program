@@ -1,27 +1,24 @@
-import React, {useState} from "react";
+import React from "react";
 import {Row} from 'react-bootstrap'
 import PropTypes from 'prop-types'
-import FilmItem from '../FilmItem'
-import Modal from '../Modal'
+import {FilmItem} from '../FilmItem'
 
-const FilmList = ({ handleEditModal, handleDeleteModal, searchResult}) => {
-
+export const FilmList = ({handleDeleteModal, searchResult}) => {
 
     return (
         <div className="film-list">
             <Row>
                 {searchResult.map((item, i) => (
-                    <FilmItem handleEditModal={handleEditModal}
-                              handleDeleteModal={handleDeleteModal}
-                              key={i}
-                              {...item} />))}
+                    <FilmItem handleDeleteModal={handleDeleteModal}
+                              key={item.id}
+                              movie={item} />))}
             </Row>
         </div>
     )
 }
 
 FilmList.propTypes = {
+    handleDeleteModal: PropTypes.func,
     searchResult: PropTypes.array
 }
 
-export default FilmList;

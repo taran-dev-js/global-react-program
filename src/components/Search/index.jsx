@@ -1,10 +1,9 @@
 import React from "react";
-import Input from "../Input";
-import Button from "../Button";
+import {Input, Button} from "../../components";
 
 import "./styles.scss"
 
-export default () => {
+export const Search = () => {
     return (
         <form className="search">
             <Input type="text" title="Find your movie..."/>

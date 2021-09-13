@@ -1,15 +1,25 @@
 import React from "react";
 import PropTypes from 'prop-types'
-import Button from '../Button'
-
+import {Button} from '../Button'
+import ReactDOM from 'react-dom'
 import './styles.scss'
+import {useDispatch} from "react-redux";
+import {handleModal} from "../../store/thunks/movies";
+const modalRootEl = document.getElementById('modal-root')
 
-const Modal = ({isOpen, title, subtitle, closeHandle, children}) => {
+export const Modal = ({isOpen, title, subtitle, children}) => {
+    const triggerModalDispatch = useDispatch();
 
-    return (isOpen ?
-        <div className={`c-modal c-modal--delete ${isOpen ? 'isOpen' : ''}`}>
+    const handleEditModal = (e) => {
+        triggerModalDispatch(handleModal({name: '', movie: null}));
+    }
+
+    if (!isOpen) return null;
+
+    return ReactDOM.createPortal(
+        <div className='c-modal isOpen'>
             <div className="c-modal__wrap">
-                <Button style="c-modal__close" onClick={closeHandle} title="X"></Button>
+                <Button style="c-modal__close" onClick={handleEditModal} title="X"></Button>
                 <div className="c-modal__container">
                     <h2 className="c-modal__title">{title}</h2>
                     <p className="c-modal__subtitle">{subtitle}</p>
@@ -18,8 +28,8 @@ const Modal = ({isOpen, title, subtitle, closeHandle, children}) => {
                     </div>
                 </div>
             </div>
-
-        </div> : ''
+        </div>,
+        modalRootEl
     )
 }
 
@@ -29,5 +39,3 @@ Modal.propTypes = {
     subtitle: PropTypes.string,
     children: PropTypes.any
 }
-
-export default Modal;

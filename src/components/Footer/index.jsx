@@ -1,8 +1,8 @@
 import React from "react";
 import {Container, Row, Col} from 'react-bootstrap'
-import Logo from '../Logo'
+import {Logo} from '../Logo'
 
-export default () => <footer className="footer">
+export const Footer = () => <footer className="footer">
     <Container>
         <Row>
             <Col>
