@@ -1,5 +1,6 @@
 import React from "react";
 import {Container, Row, Col} from 'react-bootstrap';
+import PropTypes from 'prop-types'
 import Logo from "../Logo";
 import Input from '../Input'
 import Button from '../Button'
@@ -38,6 +39,10 @@ const Header = ({handleAddModal}) => {
         </Container>
     </header>
     )
+}
+
+Header.propTypes = {
+    handleAddModal: PropTypes.func,
 }
 
 export default Header;
