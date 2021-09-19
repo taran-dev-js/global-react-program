@@ -13,4 +13,4 @@ export {Modal} from './Modal';
 export {ResultCount} from './ResultCount';
 export {Search} from './Search';
 export {App} from './App';
-export {AddModal} from './Modal/AddModal';
+export {ModalManager} from './Modal/ModalManager';

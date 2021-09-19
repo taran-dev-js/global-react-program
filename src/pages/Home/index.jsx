@@ -7,10 +7,10 @@ import {
     ResultCount,
     FilmList,
     Footer,
-    ErrorCatch
+    ErrorCatch,
+    ModalManager
 } from '../../components/';
 import {getMovieThunk} from "../../store/thunks/movies";
-import {ModalManager} from "../../components/Modal/ModalManager";
 
 const Home = () => {
     const getMovieDispatch = useDispatch();

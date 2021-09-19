@@ -20,6 +20,16 @@ export const postMovieAction = (movie) => ({
     payload: movie
 })
 
+export const sortMovieAction = (sortBy, movies) => ({
+    type: actionTypes.SORT_MOVIE_SUCCESS,
+    payload: {sortBy, movies}
+})
+
+export const filterMovieAction = (filter, movies) => ({
+    type: actionTypes.FILTER_MOVIE_SUCCESS,
+    payload: {filter, movies}
+})
+
 export const triggerModalAction = (openModal) => ({
     type: actionTypes.TRIGGER_MODAL,
     payload: openModal

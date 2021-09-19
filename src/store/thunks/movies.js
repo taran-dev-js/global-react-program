@@ -1,12 +1,25 @@
 import axios from "axios";
-import {baseURL, movieModel} from "../../constants";
-import {getMoviesAction, triggerModalAction, postMovieAction, updateMoviesAction, deleteMoviesAction} from "../actions";
+import {baseURL, genresTypes, movieModel} from "../../constants";
+import {
+    getMoviesAction,
+    triggerModalAction,
+    postMovieAction,
+    updateMoviesAction,
+    deleteMoviesAction,
+    sortMovieAction, filterMovieAction
+} from "../actions";
 import {getMovieModel} from "../../helpers/movieModel";
 
-export const getMovieThunk = () => async dispatch => {
+const getURL = (sortBy, filter) => {
+    const filterQuery = filter === genresTypes[0] ? '' : `&filter=${filter}`;
+    return `${baseURL}/movies?sortBy=${sortBy}${filterQuery}&sortOrder=desc`
+}
+
+export const getMovieThunk = () => async (dispatch, getState) => {
+    const {sortBy, filter} = getState()
     try {
-        const movies = await axios.get(`${baseURL}/movies`).then(res => res.data.data);
-        await console.log('getMovieThunk', movies);
+        const movies = await axios.get(getURL(sortBy, filter))
+            .then(res => res.data.data);
 
         dispatch(getMoviesAction(movies))
     } catch (e) {
@@ -43,6 +56,30 @@ export const deleteMovieThunk = id => async dispatch => {
         dispatch(deleteMoviesAction(id))
     } catch (e) {
         console.error('deleteMovieThunk', e)
+    }
+}
+
+export const sortMovieThunk = (sortBy) => async (dispatch, getState) => {
+    const {filter} = getState();
+    try {
+        const movies = await axios.get(getURL(sortBy, filter))
+            .then(res => res.data.data);
+
+        dispatch(sortMovieAction(sortBy, movies))
+    } catch (e) {
+        console.error('sortMovieThunk', e)
+    }
+}
+
+export const filterMovieThunk = (filter) => async (dispatch, getState) => {
+    const {sortBy} = getState();
+    try {
+        const movies = await axios.get(getURL(sortBy, filter))
+            .then(res => res.data.data);
+
+        dispatch(filterMovieAction(filter, movies))
+    } catch (e) {
+        console.error('filterMovieThunk', e)
     }
 }
 

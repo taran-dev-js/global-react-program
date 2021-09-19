@@ -1,4 +1,5 @@
 export const baseURL = 'http://localhost:4000';
+
 export const movieModel = {
     id: "id",
     title: "title",
@@ -13,8 +14,22 @@ export const movieModel = {
     runtime: "runtime",
     genres: "genres"
 }
+
 export const modalTypes = {
     editModal: 'editModal',
     addModal: 'addModal',
     deleteModal: 'deleteModal'
+}
+
+export const genresTypes = [
+    'all',
+    'documentary',
+    'comedy',
+    'horror',
+    'action'
+];
+
+export const sortingTypes = {
+    'release date': 'release_date',
+    'rating': 'vote_average',
 }

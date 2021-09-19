@@ -1,7 +1,7 @@
 import {movieModel} from "../constants";
 
 export const getMovieModel = (values) => {
-    // console.log(values[movieModel.genres]);
+
     return {
         [movieModel.title]: values[movieModel.title],
         [movieModel.tagline]: "Here's to the fools who dream.",

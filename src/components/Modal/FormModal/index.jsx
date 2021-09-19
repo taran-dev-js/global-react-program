@@ -2,7 +2,7 @@ import React from "react";
 import {FormGroup} from "../../Form/FormGroup";
 import {Button} from "../../Button";
 import {useDispatch, useSelector} from "react-redux";
-import {postMovieThunk, updateMovieThunk} from "../../../store/thunks/movies";
+import {handleModal, postMovieThunk, updateMovieThunk} from "../../../store/thunks/movies";
 import {useFormik} from 'formik';
 import {modalTypes, movieModel} from "../../../constants";
 import * as Yup from 'yup';
@@ -10,10 +10,16 @@ import * as Yup from 'yup';
 export const FormModal = () => {
     const postMovieDispatch = useDispatch();
     const updateMovieDispatch = useDispatch();
+    const closeModalDispatch = useDispatch();
+
     const state = useSelector((state) => state);
     const {openModal: {name: activeModal, movie: activeModalID}} = state;
     const initialOptions = ['Comedy', 'Drama', 'Action']
     const currentMovie = state.movies.find(item => item.id === activeModalID);
+
+    const handleCloseModal = () => {
+        closeModalDispatch(handleModal({name: '', movie: null}));
+    }
 
     const MovieFormSchema = Yup.object().shape({
         [movieModel.title]: Yup.string()
@@ -49,14 +55,15 @@ export const FormModal = () => {
         initialValues,
         validationSchema: MovieFormSchema,
         onSubmit: values => {
-            console.log(activeModal, 'onSubmit');
             switch (activeModal) {
                 case modalTypes.editModal:
                     values.id = activeModalID
                     updateMovieDispatch(updateMovieThunk(values))
+                    handleCloseModal()
                     break;
                 case modalTypes.addModal:
                     postMovieDispatch(postMovieThunk(values))
+                    handleCloseModal()
                     break;
             }
         }
@@ -121,7 +128,7 @@ export const FormModal = () => {
                 ) : null}
             </FormGroup>
             <div className="form__btn">
-                <Button title="Reset" type="reset" style="button--transparent"/>
+                <Button title="Reset" type="reset" style="button--transparent" onClick={handleCloseModal}/>
                 <Button title="Save" type="submit"/>
             </div>
         </form>

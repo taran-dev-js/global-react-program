@@ -10,7 +10,7 @@ const modalRootEl = document.getElementById('modal-root')
 export const Modal = ({isOpen, title, subtitle, children}) => {
     const triggerModalDispatch = useDispatch();
 
-    const handleEditModal = (e) => {
+    const handleEditModal = () => {
         triggerModalDispatch(handleModal({name: '', movie: null}));
     }
 
@@ -19,7 +19,7 @@ export const Modal = ({isOpen, title, subtitle, children}) => {
     return ReactDOM.createPortal(
         <div className='c-modal isOpen'>
             <div className="c-modal__wrap">
-                <Button style="c-modal__close" onClick={handleEditModal} title="X"></Button>
+                <Button style="c-modal__close" onClick={handleEditModal} title="X"/>
                 <div className="c-modal__container">
                     <h2 className="c-modal__title">{title}</h2>
                     <p className="c-modal__subtitle">{subtitle}</p>
