@@ -4,7 +4,7 @@ import {Button} from "../../Button";
 import {useDispatch, useSelector} from "react-redux";
 import {handleModal, postMovieThunk, updateMovieThunk} from "../../../store/thunks/movies";
 import {useFormik} from 'formik';
-import {modalTypes, movieModel} from "../../../constants";
+import {genresTypes, modalTypes, movieModel} from "../../../constants";
 import * as Yup from 'yup';
 
 export const FormModal = () => {
@@ -14,7 +14,6 @@ export const FormModal = () => {
 
     const state = useSelector((state) => state);
     const {openModal: {name: activeModal, movie: activeModalID}} = state;
-    const initialOptions = ['Comedy', 'Drama', 'Action']
     const currentMovie = state.movies.find(item => item.id === activeModalID);
 
     const handleCloseModal = () => {
@@ -71,7 +70,7 @@ export const FormModal = () => {
 
     const genresOption = activeModal === modalTypes.editModal ?
         currentMovie[movieModel.genres].map((value, key) => <option value={value} label={value} key={key}/>)
-        : initialOptions.map((value, key) => <option value={value} label={value} key={key}/>)
+        : genresTypes.map((value, key) => <option value={value} label={value} key={key}/>)
 
     return (
         <form className="form" onSubmit={formik.handleSubmit}>
