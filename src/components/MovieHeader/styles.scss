@@ -1,0 +1,46 @@
+.header-movie {
+  display: flex;
+  margin-bottom: 40px;
+  color: white;
+  font-size: 16px;
+}
+
+.header-movie__img {
+  width: 30%;
+  flex: 1 0 auto;
+  padding-right: 30px;
+  img {
+    display: block;
+    max-width: 100%;
+  }
+}
+
+.header-movie__title {
+  display: flex;
+  align-items: center;
+  h2 {
+    margin-bottom: 0;
+    padding-right: 15px;
+  }
+  span {
+    padding: 10px;
+    border: 1px solid #f65221;
+    border-radius: 50%;
+  }
+}
+
+.header-movie__info {
+  //flex: 1 0 auto;
+}
+
+.header-movie__year,
+.header-movie__duration {
+  color: #f65221;
+  font-size: 18px;
+}
+
+.header-movie__year {
+  padding-right: 20px;
+}
+.header-movie__duration {
+}
