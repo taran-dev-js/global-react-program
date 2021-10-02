@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import "./styles.scss"
 
-const ResultCount = ({filmsCount}) => {
+export const ResultCount = ({filmsCount}) => {
     return (
         <div className="result-count">
             <p><strong>{filmsCount}</strong> movies found</p>
@@ -15,4 +15,3 @@ ResultCount.propTypes = {
     filmsCount: PropTypes.number
 }
 
-export default ResultCount;

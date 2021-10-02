@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class ErrorCatch extends React.Component {
+export class ErrorCatch extends React.Component {
   static get propTypes() {
     return {
       text: PropTypes.string,
@@ -29,5 +29,3 @@ class ErrorCatch extends React.Component {
     return this.props.children;
   }
 }
-
-export default ErrorCatch;

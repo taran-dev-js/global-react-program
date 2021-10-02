@@ -1,13 +1,19 @@
 import React from "react";
 import {Container, Row, Col} from 'react-bootstrap';
-import PropTypes from 'prop-types'
-import Logo from "../Logo";
-import Input from '../Input'
-import Button from '../Button'
-import Search from '../Search'
+import {Button, Logo, Search} from '../../components'
 import './styles.scss'
+import {modalTypes} from "../../constants";
+import {useDispatch} from "react-redux";
+import {handleModal} from "../../store/thunks/movies";
 
-const Header = ({handleAddModal}) => {
+export const Header = () => {
+    const dispatch = useDispatch();
+
+    const handleClickModal = (event) => {
+        event.preventDefault()
+        const { target: { dataset: { modal }}} = event
+        if (modal) dispatch(handleModal({name: modal}));
+    }
 
     return (
     <header className="header">
@@ -20,7 +26,8 @@ const Header = ({handleAddModal}) => {
                     <Col md={{span: 3, offset: 6}}>
                         <div className="header__top-btn">
                             <Button style="button--transparent"
-                                    onClick={handleAddModal}
+                                    data-modal={modalTypes.addModal}
+                                    onClick={handleClickModal}
                                     title="+ ADD MOVIE"/>
                         </div>
                     </Col>
@@ -40,9 +47,3 @@ const Header = ({handleAddModal}) => {
     </header>
     )
 }
-
-Header.propTypes = {
-    handleAddModal: PropTypes.func,
-}
-
-export default Header;
