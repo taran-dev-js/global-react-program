@@ -13,12 +13,12 @@ import {
 import {getMovieThunk} from "../../store/thunks/movies";
 
 const Home = () => {
-    const getMovieDispatch = useDispatch();
+    const dispatch = useDispatch();
     const state = useSelector((state) => state);
 
     useEffect(() => {
-        getMovieDispatch(getMovieThunk());
-    }, [getMovieDispatch])
+        dispatch(getMovieThunk());
+    }, [dispatch])
 
     return (
         <>

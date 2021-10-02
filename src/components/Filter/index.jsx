@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useCallback} from "react";
 import {Button} from '../Button'
 
 import "./styles.scss"
@@ -8,13 +8,12 @@ import {genresTypes, sortingTypes} from "../../constants";
 
 export const Filter = () => {
     const {filter, sortBy} = useSelector((state) => state);
-    const filterMovieDispatch = useDispatch();
-    const sortMovieDispatch = useDispatch();
+    const dispatch = useDispatch();
 
-    const handleFilterClick = (event) => {
+    const handleFilterClick = useCallback((event) => {
         const {target: {dataset: {filter}}} = event
-        filterMovieDispatch(filterMovieThunk(filter));
-    }
+        dispatch(filterMovieThunk(filter));
+    }, [])
 
     const filterItems = genresTypes.map((item, key) => (
         <div className={`filter__item ${filter === item ? 'active' : null}`} key={key}>
@@ -27,7 +26,7 @@ export const Filter = () => {
     ))
 
     const handleChangeSelect = (e) => {
-        sortMovieDispatch(sortMovieThunk(e.target.value))
+        dispatch(sortMovieThunk(e.target.value))
     }
 
     return (

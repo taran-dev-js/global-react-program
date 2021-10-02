@@ -9,12 +9,12 @@ export const DropDownMenu = ({item}) => {
     const [isOpenMenu, setOpenMenu] = useState(false);
 
     const handleMenuClick = () => { setOpenMenu(!isOpenMenu) }
-    const handleModalDispatch = useDispatch();
+    const dispatch = useDispatch();
 
     const handleClickModal = (event) => {
         event.preventDefault()
         const { target: { dataset: { modal, movie }}} = event
-        if (modal && movie) handleModalDispatch(handleModal({name: modal, movie: +movie}));
+        if (modal && movie) dispatch(handleModal({name: modal, movie: +movie}));
     }
 
     return (

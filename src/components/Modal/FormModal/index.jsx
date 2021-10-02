@@ -8,16 +8,14 @@ import {genresTypes, modalTypes, movieModel} from "../../../constants";
 import * as Yup from 'yup';
 
 export const FormModal = () => {
-    const postMovieDispatch = useDispatch();
-    const updateMovieDispatch = useDispatch();
-    const closeModalDispatch = useDispatch();
+    const dispatch = useDispatch();
 
     const state = useSelector((state) => state);
     const {openModal: {name: activeModal, movie: activeModalID}} = state;
     const currentMovie = state.movies.find(item => item.id === activeModalID);
 
     const handleCloseModal = () => {
-        closeModalDispatch(handleModal({name: '', movie: null}));
+        dispatch(handleModal({name: '', movie: null}));
     }
 
     const MovieFormSchema = Yup.object().shape({
@@ -57,11 +55,11 @@ export const FormModal = () => {
             switch (activeModal) {
                 case modalTypes.editModal:
                     values.id = activeModalID
-                    updateMovieDispatch(updateMovieThunk(values))
+                    dispatch(updateMovieThunk(values))
                     handleCloseModal()
                     break;
                 case modalTypes.addModal:
-                    postMovieDispatch(postMovieThunk(values))
+                    dispatch(postMovieThunk(values))
                     handleCloseModal()
                     break;
             }

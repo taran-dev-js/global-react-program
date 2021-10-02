@@ -7,12 +7,12 @@ import {useDispatch} from "react-redux";
 import {handleModal} from "../../store/thunks/movies";
 
 export const Header = () => {
-    const handleModalDispatch = useDispatch();
+    const dispatch = useDispatch();
 
     const handleClickModal = (event) => {
         event.preventDefault()
         const { target: { dataset: { modal }}} = event
-        if (modal) handleModalDispatch(handleModal({name: modal}));
+        if (modal) dispatch(handleModal({name: modal}));
     }
 
     return (

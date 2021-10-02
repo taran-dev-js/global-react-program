@@ -8,10 +8,10 @@ import {handleModal} from "../../store/thunks/movies";
 const modalRootEl = document.getElementById('modal-root')
 
 export const Modal = ({isOpen, title, subtitle, children}) => {
-    const triggerModalDispatch = useDispatch();
+    const dispatch = useDispatch();
 
     const handleEditModal = () => {
-        triggerModalDispatch(handleModal({name: '', movie: null}));
+        dispatch(handleModal({name: '', movie: null}));
     }
 
     if (!isOpen) return null;

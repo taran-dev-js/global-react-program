@@ -8,12 +8,12 @@ import {deleteMovieThunk} from "../../../store/thunks/movies";
 
 
 export const ModalManager = () => {
-    const deleteMovieDispatch = useDispatch();
+    const dispatch = useDispatch();
     const openModal = useSelector(({openModal}) => openModal);
 
     const handleDeleteForm = (e) => {
         e.preventDefault();
-        deleteMovieDispatch(deleteMovieThunk(openModal.movie))
+        dispatch(deleteMovieThunk(openModal.movie))
     };
 
     return (
