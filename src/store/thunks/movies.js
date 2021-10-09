@@ -6,7 +6,9 @@ import {
     postMovieAction,
     updateMoviesAction,
     deleteMoviesAction,
-    sortMovieAction, filterMovieAction
+    sortMovieAction,
+    filterMovieAction,
+    searchMovieAction
 } from "../actions";
 import {getMovieModel} from "../../helpers/movieModel";
 
@@ -78,6 +80,16 @@ export const filterMovieThunk = (filter) => async (dispatch, getState) => {
             .then(res => res.data.data);
 
         dispatch(filterMovieAction(filter, movies))
+    } catch (e) {
+        console.error('filterMovieThunk', e)
+    }
+}
+
+export const searchMovieThunk = search => async dispatch => {
+    try {
+        const movies = await axios.get(`${baseURL}/movies?search=${search}&searchBy=title`)
+            .then(res => res.data.data);
+        dispatch(searchMovieAction(movies))
     } catch (e) {
         console.error('filterMovieThunk', e)
     }

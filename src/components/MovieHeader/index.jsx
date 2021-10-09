@@ -1,15 +1,9 @@
 import React from "react";
 import {Container, Row, Col} from 'react-bootstrap';
-import PropTypes from 'prop-types'
-import Logo from "../Logo";
-import Input from '../Input'
-import Button from '../Button'
-import Search from '../Search'
+import {Button, Logo} from '../../components'
 import './styles.scss'
-import {ReactComponent as SearchIcon}from '../../assests/search_icon.svg'
 
-const MovieHeader = ({movie}) => {
-
+export const MovieHeader = ({movie}) => {
     return (
         <header className="header">
             <Container>
@@ -30,16 +24,16 @@ const MovieHeader = ({movie}) => {
                         <Col>
                             <div className="header-movie">
                                 <div className="header-movie__img">
-                                    <img src={movie.img} alt=""/>
+                                    <img src={movie.poster_path} alt=""/>
                                 </div>
                                 <div className="header-movie__info">
                                     <div className="header-movie__title">
-                                        <h2>{movie.title}</h2> <span>{movie.rating}</span>
+                                        <h2>{movie.title}</h2> <span>{movie.vote_average}</span>
                                     </div>
-                                    <p className="header-movie__subtitle">{movie.subtitle}</p>
-                                    <span className="header-movie__year">{movie.year}</span>
-                                    <span className="header-movie__duration">{movie.duration}</span>
-                                    <div className="header-movie__descr">{movie.description}</div>
+                                    {/*<p className="header-movie__subtitle">{movie.subtitle}</p>*/}
+                                    <span className="header-movie__year">{movie.release_date}</span>
+                                    <span className="header-movie__duration">{movie.runtime}</span>
+                                    <div className="header-movie__descr">{movie.overview}</div>
                                 </div>
                             </div>
                         </Col>
@@ -50,4 +44,3 @@ const MovieHeader = ({movie}) => {
     )
 }
 
-export default MovieHeader;

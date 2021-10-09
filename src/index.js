@@ -10,7 +10,6 @@ import rootReducer from './store/rootReducer'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
 
 ReactDOM.render(

@@ -1,0 +1,16 @@
+.page-404 {
+  position: relative;
+  height: 100%;
+  background-image: url("https://blog.vverh.digital/wp-content/uploads/2020/06/oblojka-404.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: #121212;
+  background-position: center;
+}
+
+.page-404_link {
+  position: absolute;
+  left: 50%;
+  top: 80%;
+  transform: translate(-50%, -50%);
+}

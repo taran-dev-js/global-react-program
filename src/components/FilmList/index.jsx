@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 import {FilmItem} from '../FilmItem'
 
 export const FilmList = ({searchResult}) => {
-
     return (
         <div className="film-list">
             <Row>

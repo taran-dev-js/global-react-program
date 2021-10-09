@@ -30,6 +30,11 @@ export const filterMovieAction = (filter, movies) => ({
     payload: {filter, movies}
 })
 
+export const searchMovieAction = (movies) => ({
+    type: actionTypes.SEARCH_MOVIE_SUCCESS,
+    payload: movies
+})
+
 export const triggerModalAction = (openModal) => ({
     type: actionTypes.TRIGGER_MODAL,
     payload: openModal
