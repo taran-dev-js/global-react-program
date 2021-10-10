@@ -1,10 +1,11 @@
 import React from "react";
 import PropTypes from 'prop-types'
-import {Button} from '../Button'
 import ReactDOM from 'react-dom'
-import './styles.scss'
 import {useDispatch} from "react-redux";
 import {handleModal} from "../../store/thunks/movies";
+import {Button} from '../Button'
+import './styles.scss'
+
 const modalRootEl = document.getElementById('modal-root')
 
 export const Modal = ({isOpen, title, subtitle, children}) => {

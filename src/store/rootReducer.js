@@ -1,7 +1,7 @@
 import {actionTypes} from "./actionTypes";
 import {genresTypes, sortingTypes} from "../constants";
 
-const initialState = {
+export const initialState = {
     movies: [],
     openModal: {
         name: '',
@@ -11,7 +11,7 @@ const initialState = {
     filter: genresTypes[0]
 }
 
-export default function rootReducer(state = initialState, action) {
+export function rootReducer (state = initialState, action) {
     switch (action.type) {
         case actionTypes.GET_MOVIE_SUCCESS:
             return {

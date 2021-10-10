@@ -19,6 +19,10 @@ module.exports = function(_env, argv) {
         resolve: {
             extensions: ['.js', '.jsx']
         },
+        transform: {
+            "^.+\\.js$": "babel-jest",
+            ".+\\.(css|styl|less|sass|scss)$": "jest-transform-css"
+        },
         module: {
             rules: [
                 {
