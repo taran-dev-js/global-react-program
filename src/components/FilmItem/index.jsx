@@ -1,17 +1,18 @@
 import React from "react";
 import {Col} from 'react-bootstrap'
 import PropTypes from 'prop-types'
+import {Link} from "react-router-dom";
 import {DropDownMenu} from '../DropDownMenu'
 
 import './styles.scss'
 
 export const FilmItem = ({movie}) => {
-    const {poster_path, title, release_date, genres, vote_average} = movie;
+    const {poster_path, title, release_date, genres, vote_average, id} = movie;
 
     return (
         <>
             <Col md={4}>
-                <div className="film-item">
+                <Link to={`/film/${id}`} className="film-item">
                     <div className="film-item__img">
                         <DropDownMenu item={movie} />
                         <img src={poster_path} alt=""/>
@@ -24,7 +25,7 @@ export const FilmItem = ({movie}) => {
                             {genres.map((item, i) => (<span key={i}>{item}</span>))}
                         </p>
                     </div>
-                </div>
+                </Link>
             </Col>
         </>
     )

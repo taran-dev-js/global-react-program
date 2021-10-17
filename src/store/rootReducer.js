@@ -45,6 +45,11 @@ export default function rootReducer(state = initialState, action) {
                 movies: action.payload.movies,
                 filter: action.payload.filter
             }
+        case actionTypes.SEARCH_MOVIE_SUCCESS:
+            return {
+                ...state,
+                movies: action.payload
+            }
         case actionTypes.TRIGGER_MODAL:
             return {
                 ...state,

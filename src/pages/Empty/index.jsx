@@ -1,32 +1,22 @@
 import React from "react";
 import {Container, Row, Col} from 'react-bootstrap';
-import {useSelector} from 'react-redux'
 import {
     Header,
-    Filter,
-    ResultCount,
-    FilmList,
     Footer,
-    ErrorCatch,
     ModalManager
 } from '../../components/';
+import './styles.scss'
 
-
-const Home = () => {
-    const movies = useSelector(({movies}) => movies);
+const EmptyPage = () => {
 
     return (
         <>
             <Header/>
-            <main>
+            <main className='empty-page'>
                 <Container>
                     <Row>
                         <Col>
-                            <ErrorCatch>
-                                <Filter/>
-                                <ResultCount filmsCount={movies.length}/>
-                                <FilmList searchResult={movies} />
-                            </ErrorCatch>
+                            <h3>No Movie Found</h3>
                         </Col>
                     </Row>
                 </Container>
@@ -39,4 +29,4 @@ const Home = () => {
     )
 };
 
-export default Home;
+export default EmptyPage;

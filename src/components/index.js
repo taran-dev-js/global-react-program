@@ -14,3 +14,4 @@ export {ResultCount} from './ResultCount';
 export {Search} from './Search';
 export {App} from './App';
 export {ModalManager} from './Modal/ModalManager';
+export {MovieHeader} from './MovieHeader';
