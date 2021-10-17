@@ -12,8 +12,13 @@
   "dependencies": {
     "axios": "^0.21.1",
     "bootstrap": "^5.0.2",
+    "enzyme-adapter-react-16": "^1.15.6",
+    "enzyme-to-json": "^3.6.2",
     "formik": "^2.2.9",
     "history": "^5.0.1",
+    "identity-obj-proxy": "^3.0.0",
+    "jest-transform-css": "^2.1.0",
+    "jsdom": "^18.0.0",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
     "react-bootstrap": "^1.6.1",
@@ -39,6 +44,7 @@
     "babel-loader": "^8.0.6",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "css-loader": "^3.2.0",
+    "enzyme": "^3.11.0",
     "file-loader": "^4.2.0",
     "html-webpack-plugin": "^5.3.2",
     "jest": "^27.0.6",
@@ -55,5 +61,23 @@
     "webpack-cli": "^3.3.9",
     "webpack-dev-server": "^3.8.1",
     "yup": "^0.32.9"
+  },
+  "jest": {
+    "verbose": true,
+    "clearMocks": true,
+    "collectCoverage": true,
+    "setupFilesAfterEnv": [
+      "./config/setupTest.js"
+    ],
+    "snapshotSerializers": [
+      "./node_modules/enzyme-to-json/serializer"
+    ],
+    "transform": {
+      "^.+\\.(js|jsx)$": "babel-jest"
+    },
+    "moduleNameMapper": {
+      "\\.(css|less|sass|scss)$": "<rootDir>/__mocks__/styleMock.js",
+      "\\.(gif|ttf|eot|svg|png)$": "<rootDir>/__mocks__/fileMock.js"
+    }
   }
 }
